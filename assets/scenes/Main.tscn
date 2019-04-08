@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://assets/scenes/Board.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scenes/UI.tscn" type="PackedScene" id=3]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Board" parent="." instance=ExtResource( 2 )]
+rotation = -4.39167e-005
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+visible = false
+
+[node name="UITimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="pressed" from="UI/GridContainer/NewGame" to="." method="_restartGame"]
+[connection signal="pressed" from="UI/GridContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="timeout" from="UITimer" to="." method="_on_UITimer_timeout"]
+
+[editable path="UI"]

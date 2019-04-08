@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/scenes/Main.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/scripts/MainMP.gd" type="Script" id=2]
+[ext_resource path="res://assets/scenes/MPMenu.tscn" type="PackedScene" id=3]
+
+[node name="MainMP" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Board" parent="." index="0"]
+visible = false
+
+[node name="UI" parent="." index="1"]
+editor/display_folded = false
+
+[node name="MPMenu" parent="." index="3" instance=ExtResource( 3 )]
+editor/display_folded = true
+
+[connection signal="pressed" from="MPMenu/HostBtn" to="." method="_on_HostBtn_pressed"]
+[connection signal="pressed" from="MPMenu/ConnectBtn" to="." method="_on_ConnectBtn_pressed"]
+
+[editable path="UI"]
+
+[editable path="MPMenu"]

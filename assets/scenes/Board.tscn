@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/scripts/Board.gd" type="Script" id=1]
+[ext_resource path="res://assets/scenes/X.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scenes/O.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/art/board.png" type="Texture" id=4]
+
+[node name="Board" type="Node2D"]
+rotation = -18.8496
+z_index = -1
+script = ExtResource( 1 )
+x = ExtResource( 2 )
+o = ExtResource( 3 )
+
+[node name="BoardSprite" type="Sprite" parent="."]
+position = Vector2( 301, 301 )
+texture = ExtResource( 4 )
+
